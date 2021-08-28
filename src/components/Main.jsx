@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import getWeatherData from "../utils/getWeather";
 import Form from "./Form";
 
 class Main extends Component {
@@ -6,21 +7,20 @@ class Main extends Component {
     super(props);
     this.state = {
       search: "",
-      location: {}
     };
   }
 
-  handleChange = ({ target: input}) => {
-    const { name, value } = input
-    this.setState({ [name]: value })
+  handleChange = ({ target: input }) => {
+    const { value } = input;
+    this.setState({ search: value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    const location = {
-      city: this.state.search,
-    }
-    this.setState({ location });
+    let city = this.state.search;
+    console.log('city', city);
+    const weatherData = await getWeatherData(city);
+    console.log("Weather Data", weatherData);
   };
 
   render() {
@@ -29,7 +29,7 @@ class Main extends Component {
       <main className="container">
         <div>
           <Form
-            search={search}
+            value={search}
             onSubmit={this.handleSubmit}
             onChange={this.handleChange}
           />
