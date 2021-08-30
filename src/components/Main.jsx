@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import { ToastContainer } from 'react-toastify';
 import getWeatherData from "../utils/getWeather";
 import Form from "./Form";
+
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       search: "",
+      weatherData: [],
     };
   }
 
@@ -18,15 +21,16 @@ class Main extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     let city = this.state.search;
-    console.log('city', city);
     const weatherData = await getWeatherData(city);
+    this.setState({ weatherData });
     console.log("Weather Data", weatherData);
   };
 
   render() {
-    const { search } = this.state;
+    const { search, weatherData } = this.state;
     return (
       <main className="container">
+        <ToastContainer />
         <div>
           <Form
             value={search}
