@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ToastContainer } from "react-toastify";
-import { ClipLoader } from "react-spinners";
 import getWeatherData from "../utils/getWeather";
 import Form from "./Form";
 import Section from "./Section";
@@ -37,7 +36,7 @@ class Main extends Component {
             onSubmit={this.handleSubmit}
             onChange={this.handleChange}
           />
-          {weatherData ? <Section weatherInfo={weatherData} /> : <ClipLoader />}
+          {weatherData ? <Section weatherInfo={weatherData} /> : <h2>Work against the Weather</h2>}
         </div>
       </main>
     );
