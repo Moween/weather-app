@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+import { ClipLoader } from "react-spinners";
 import getWeatherData from "../utils/getWeather";
 import Form from "./Form";
-
+import Section from "./Section";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       search: "",
-      weatherData: [],
+      weatherData: "",
     };
   }
 
@@ -23,13 +24,12 @@ class Main extends Component {
     let city = this.state.search;
     const weatherData = await getWeatherData(city);
     this.setState({ weatherData });
-    console.log("Weather Data", weatherData);
   };
 
   render() {
     const { search, weatherData } = this.state;
     return (
-      <main className="container">
+      <main className="container limited">
         <ToastContainer />
         <div>
           <Form
@@ -37,6 +37,7 @@ class Main extends Component {
             onSubmit={this.handleSubmit}
             onChange={this.handleChange}
           />
+          {weatherData ? <Section weatherInfo={weatherData} /> : <ClipLoader />}
         </div>
       </main>
     );
