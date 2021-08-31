@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import { toast } from 'react-toastify';
 
 axios.interceptors.response.use(null, (error) => {
@@ -7,8 +7,9 @@ axios.interceptors.response.use(null, (error) => {
     error.response.status >= 400 &&
     error.response.status < 500;
 
-  if(!expectedError) { //Check for unexpected error
-    console.log('Logging', error)
+  if (!expectedError) {
+    //Check for unexpected error
+    console.log('Logging', error);
     toast.error('An error occured');
   }
   Promise.reject(error);
@@ -16,26 +17,16 @@ axios.interceptors.response.use(null, (error) => {
 
 const getWeatherData = async (searchQuery) => {
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-  const apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
+  const apiEndPoint = 'https://api.openweathermap.org/data/2.5/weather';
   let cityName;
-  let countryName;
+  let countryCode;
 
-  if (searchQuery.includes(",")) {
-    searchQuery = searchQuery.split(", ");
-    cityName = searchQuery[0];
-    cityName = cityName.slice(0, 1).toUpperCase() + cityName.slice(1);
-    countryName = searchQuery[1];
-    const response = await httpRequest(
-      `${apiEndPoint}?q=${cityName},${countryName}&appid=${apiKey}`
-    );
-    return response;
-  } else {
-    cityName = searchQuery;
-    const response = await httpRequest(
-      `${apiEndPoint}?q=${cityName}&appid=${apiKey}`
-    );
-    return response;
-  }
+  searchQuery = searchQuery.split(', ');
+  [cityName, countryCode] = [...searchQuery];
+  const response = await httpRequest(
+    `${apiEndPoint}?q=${cityName},${countryCode || ''}&appid=${apiKey}`
+  );
+  return response;
 };
 
 const httpRequest = async (apiClient) => {
