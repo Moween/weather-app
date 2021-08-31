@@ -3,18 +3,18 @@ import React from "react";
 const Form = (props) => {
   const { onSubmit, onChange , value} = props;
   return (
-    <form className="d-flex" onSubmit={onSubmit}>
+    <form id="form" className="d-flex" onSubmit={onSubmit}>
       <input
         className="form-control me-2"
         name="search"
         type="search"
-        placeholder="Search"
+        placeholder="search  city"
         aria-label="Search"
         onChange={onChange}
-        value={value}
         required
+        value={value}
       />
-      <button className="btn btn-outline-success" type="submit">
+      <button className="btn btn-light" type="submit">
         Search
       </button>
     </form>
