@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
 const Header = () => {
-  return ( 
+  return (
     <header className="header container-fluid">
-      <h1>Weather Forcast</h1>
+      <div className="limited">
+        <h1>Today's Weather</h1>
+      </div>
     </header>
   );
-}
- 
+};
+
 export default Header;
