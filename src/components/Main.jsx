@@ -36,7 +36,20 @@ class Main extends Component {
             onSubmit={this.handleSubmit}
             onChange={this.handleChange}
           />
-          {weatherData ? <Section weatherInfo={weatherData} /> : <h2>Work against the Weather</h2>}
+          {weatherData ? (
+            <Section weatherInfo={weatherData} />
+          ) : (
+            <div className="quotes">
+              <p className="mt-0 fs-5">
+                <q>
+                  There is no such thing as a bad weather, just inappropriate
+                  clothing.
+                </q>
+                <br />
+                Ranulph Fiennes
+              </p>
+            </div>
+          )}
         </div>
       </main>
     );
