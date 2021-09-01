@@ -1,3 +1,4 @@
+require('dotenv').config(); 
 import "./App.css";
 import 'react-toastify/dist/ReactToastify.css'
 import Header from "./components/Header";
