@@ -8,11 +8,12 @@ axios.interceptors.response.use(null, (error) => {
     error.response.status < 500;
 
   if (!expectedError) {
-    //Check for unexpected error
+    // Check for unexpected error
     console.log('Logging', error);
     toast.error('An error occured');
   }
-  Promise.reject(error);
+  // For expected error
+  return Promise.reject(error);
 });
 
 const getWeatherData = async (searchQuery) => {
