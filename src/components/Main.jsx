@@ -24,17 +24,24 @@ class Main extends Component {
     const weatherData = await getWeatherData(city);
     this.setState({ weatherData });
   };
+  
+  handleClick = (e) => {
+    let search = this.state.search;
+    search = '';
+    this.setState({ search });
+  }
 
   render() {
     const { search, weatherData } = this.state;
     return (
-      <main className="container limited">
+      <main className="container">
         <ToastContainer />
-        <div>
+        <div className="limited">
           <Form
             value={search}
             onSubmit={this.handleSubmit}
             onChange={this.handleChange}
+            onClick={this.handleClick}
           />
           {weatherData ? (
             <Section weatherInfo={weatherData} />
