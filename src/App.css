@@ -35,9 +35,11 @@ h2 {
 }
 
 .quotes {
-  text-align: center;
   color: rgba(255, 255, 255, 0.863);
+  margin: 0 auto;
   padding: 50px 0;
+  text-align: center;
+  width: 60%;
 }
 
 section .temp {
