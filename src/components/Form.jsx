@@ -2,7 +2,7 @@ import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
 
 const Form = (props) => {
-  const { onSubmit, onChange, value } = props;
+  const { onSubmit, onChange, value, onClick } = props;
   return (
     <form id="form" className="d-flex" onSubmit={onSubmit}>
       <div>
@@ -18,6 +18,7 @@ const Form = (props) => {
           onChange={onChange}
           required
           value={value}
+          onClick={onClick}
         />
       </div>
     </form>
