@@ -1,3 +1,11 @@
+#root {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow-y: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
+}
+
 .header {
   background-color: rgba(0, 0, 0, 0.733);
   color: #fff;
@@ -27,7 +35,7 @@ section {
 }
 
 section.pg-section1 {
-  padding: 70px 0;
+  padding: 50px 0;
 }
 
 h2 {
@@ -85,16 +93,16 @@ form > div .searchbar::placeholder {
 
 footer {
   width: 100%;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   color: #fff;
   text-align: center;
 }
 
 @media screen and (min-width: 768px) {
-.header {
-  height: 100px;
-}
+  .header {
+    height: 100px;
+  }
 
   #form {
     position: absolute;

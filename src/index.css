@@ -4,14 +4,19 @@
   padding: 0;
 }
 
+*:before,
+*:after {
+ box-sizing: border-box;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  height: 10vh;
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative;
+  /* position: relative; */
   background-image: url("./images/weatherapp-bg.jpg");
 }
 
