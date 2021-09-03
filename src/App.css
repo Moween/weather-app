@@ -6,7 +6,7 @@
 }
 
 .limited {
-  width: 1140px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
@@ -39,7 +39,7 @@ h2 {
   margin: 0 auto;
   padding: 50px 0;
   text-align: center;
-  width: 60%;
+  width: 80%;
 }
 
 section .temp {
@@ -59,7 +59,7 @@ form > div {
 }
 
 form .searchbar {
-  width: 20rem;
+  width: 18rem;
   border: none;
   outline: none;
   background: rgba(255, 255, 255, 0.808);
