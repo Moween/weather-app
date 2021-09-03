@@ -14,7 +14,7 @@ const Section = (props) => {
       <div className="container">
         <div>
           <div className="d-flex align-items-center">
-            <p className="fs-3 mb-0">{weatherInfo.weather[0].description}</p>
+            <p className="fs-5 mb-0 text-uppercase">{weatherInfo.weather[0].description}</p>
             <img
               src={`http://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png`}
               alt="weather-icon"
