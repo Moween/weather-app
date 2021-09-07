@@ -17,6 +17,8 @@ Acknowledgments
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 The application is weather-app that allows users to know the weather forecast
 
+![weather-app-preview](/src/images/weatherapp-screenshot.png)
+
 
 ## The challenge
 Users should be able to:
@@ -39,6 +41,22 @@ Bootstrap CDN - For styles
 ## What I learned
 I learn't a lot while working on this project. But these are the major highlights of this project.
 
+#### How to intercept errors with axios
+```axios.interceptors.response.use(null, (error) => {
+  const expectedError =
+    error.response &&
+    error.response.status >= 400 &&
+    error.response.status < 500;
+
+  // For unexpected error
+  if (!expectedError) {
+    // Check for unexpected error
+    console.log('Logging', error);
+    toast.error('An error occured');
+  }
+  // For expected error
+  return Promise.reject(error);
+})```;
 
 ### Useful resources
 [Bootstrap](https://www.getbootstrap.com) - This helped me a lot when I restructured the navlinks in desktop view. I really liked this pattern and will use it going forward.
